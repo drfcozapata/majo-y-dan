@@ -1,0 +1,282 @@
+/**** @Author: Francisco Zapata ****/
+
+
+/** Reset the document **/
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    scroll-snap-type: x mandatory;
+}
+
+*,
+*:before,
+*:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    text-decoration: none;
+    list-style: none;
+}
+
+
+/** Custom Properties **/
+
+:root {
+    --amarillo: #f6cd38;
+    --casiNegro: #181818;
+    --blanco: #fff;
+    --gradiente: rgba(16, 16, 16, .8);
+}
+
+
+/** Globals **/
+
+body {
+    font-size: 16px;
+    overflow: hidden;
+}
+
+.navegacion {
+    height: 10vh;
+    background-color: var(--amarillo);
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    align-items: center;
+}
+
+.navegacion .logo {
+    width: 6rem;
+    height: 6rem;
+    grid-column: 2 / 3;
+}
+
+.navegacion .menu {
+    grid-column: 3 / 7;
+    display: flex;
+    justify-content: space-around;
+}
+
+.navegacion .menu a {
+    color: var(--casiNegro);
+    font-size: 2rem;
+}
+
+.navegacion .menu a:hover {
+    color: var(--blanco);
+    font-weight: 500;
+}
+
+.navegacion .menu-bar {
+    grid-column: 8 / 9;
+    font-size: 3rem;
+    display: none;
+}
+
+.navegacion .menu-bar:hover {
+    cursor: pointer;
+}
+
+.navegacion .shopping {
+    grid-column: 8 / 9;
+    font-size: 2rem;
+}
+
+.navegacion .shopping:hover {
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .navegacion {
+        position: relative;
+    }
+    .navegacion .shopping {
+        display: none;
+    }
+    .navegacion .menu-bar {
+        display: block;
+    }
+    .navegacion .menu {
+        position: absolute;
+        width: 100%;
+        height: 50vh;
+        display: grid;
+        align-items: center;
+        background-color: var(--amarillo);
+        margin-top: 38rem;
+        transform: translateY(-250%) translateX(70%);
+        transition: all 1s;
+    }
+    .navegacion .menu-toggle {
+        transform: translateY(0%) translateX(70%);
+    }
+}
+
+
+/** MAIN **/
+
+.webp .hero {
+    background-image: linear-gradient(var(--gradiente), var(--gradiente)), url(../img/majo-dan.webp);
+}
+
+.no-webp .hero {
+    background-image: linear-gradient(var(--gradiente), var(--gradiente)), url(../img/majo-dan.jpg);
+}
+
+.hero {
+    height: 80vh;
+    background-size: cover;
+    background-position: center center;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+}
+
+.hero .info-content {
+    grid-column: 2 / 7;
+    grid-row: 4 / 7;
+    color: var(--blanco);
+}
+
+.hero h3 {
+    font-size: 3rem;
+    font-weight: 500;
+}
+
+.hero h1 {
+    font-size: 7rem;
+    color: var(--amarillo);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.hero .paragraph {
+    font-weight: 500;
+    padding: 2rem;
+    line-height: 1.4;
+}
+
+.hero .btn {
+    font-size: 1.5rem;
+    background: none;
+    padding: 1rem 2rem;
+    border: 2px solid var(--amarillo);
+    border-radius: 3rem;
+    margin-top: 1.5rem;
+    font-weight: 700;
+    color: var(--blanco)
+}
+
+.hero .btn:hover {
+    background-color: var(--amarillo);
+    color: var(--casiNegro);
+}
+
+@media (max-width: 768px) {
+    .hero .info-content {
+        grid-column: 2 / 7;
+        /* grid-row: 3 / 6; */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero .info-content {
+        grid-column: 2 / 10;
+        grid-row: 3 / 6;
+    }
+    .hero h3 {
+        font-size: 2.5rem;
+    }
+    .hero h1 {
+        font-size: 5rem;
+    }
+    .hero .paragraph {
+        font-size: 1.4rem;
+        font-weight: 400;
+        padding-right: 0;
+    }
+}
+
+
+/** FOOTER **/
+
+.footer {
+    display: grid;
+    align-items: center;
+    height: 10vh;
+    background-color: var(--casiNegro);
+    color: var(--blanco);
+    grid-template-areas: "listen-online follow-me social-network";
+}
+
+.footer .listen-online {
+    grid-template-areas: listen-online;
+    background-color: var(--amarillo);
+    padding: 3.2vh;
+    color: var(--casiNegro);
+}
+
+.footer .listen-online a {
+    display: flex;
+    justify-content: center;
+    color: var(--casiNegro);
+}
+
+.footer .listen-online a:hover {
+    color: var(--blanco);
+}
+
+.footer .listen-online .fas {
+    font-size: 2.5rem;
+    margin-right: 1.5rem;
+}
+
+@media (max-width: 600px) {
+    .footer .listen-online {
+        padding: 3vh;
+    }
+    .footer .listen-online .fas {
+        font-size: 2rem;
+        margin-right: 1rem;
+    }
+    .footer .listen-online h2 {
+        font-size: 2rem;
+    }
+}
+
+.footer .follow-me {
+    grid-template-areas: follow-me;
+    text-align: right;
+}
+
+@media (max-width: 600px) {
+    .footer .follow-me {
+        display: none;
+    }
+}
+
+.footer .social-network {
+    grid-template-areas: social-network;
+    text-align: center;
+}
+
+.footer .social-network .fab {
+    font-size: 2.5rem;
+    margin-right: 2rem;
+    color: var(--amarillo);
+}
+
+.footer .social-network .fab:hover {
+    color: var(--blanco);
+}
+
+@media (max-width: 600px) {
+    .footer .social-network {
+        text-align: right;
+    }
+    .footer .social-network .fab {
+        margin-right: 1rem;
+        font-size: 2rem;
+    }
+}
